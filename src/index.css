@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    html, body {
+        @apply font-sans;
+        @apply bg-default;
+    }
+
+    body {
+        @apply min-w-80;
+    }
+
+    a {
+        @apply text-blue-600 hover:text-blue-800 hover:underline
+    }
+}

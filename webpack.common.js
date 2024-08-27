@@ -39,6 +39,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Healiom Landing Page',
+            template: './public/index.html',
+            inject: 'body',
         }),
     ],
     optimization: {

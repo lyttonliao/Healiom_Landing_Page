@@ -1,0 +1,17 @@
+import React from 'react';
+
+const TextSection = ({ title, body }) => {
+    return (
+        <div>
+            <h1 className="text-3xl font-semibold mb-2">
+                {title}
+            </h1>
+
+            <div className="space-y-4 leading-5">
+                {body}
+            </div>
+        </div>
+    )
+};
+
+export default TextSection;

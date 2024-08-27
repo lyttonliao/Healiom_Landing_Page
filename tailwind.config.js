@@ -19,7 +19,8 @@ module.exports = {
         'default': '#1b1e29',
       },
       backgroundColor: {
-        'default': '#f7f8fb' 
+        'default': '#f7f8fb',
+        'footer': '#353741'
       }
     }
   },

@@ -7,6 +7,8 @@
     html, body {
         @apply font-sans;
         @apply bg-default;
+        @apply text-default;
+        scroll-behavior: smooth;
     }
 
     body {
@@ -16,4 +18,10 @@
     /* a {
         @apply text-blue-600 hover:text-blue-800 hover:underline
     } */
+}
+
+@layer components {
+    .scrolled {
+        box-shadow: rgb(204, 204, 204) 0px 4px 4px
+    }
 }

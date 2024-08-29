@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Menu = ({ isMenuOpen, setIsMenuOpen }) => {
+    const ref = useRef(null);
+
+    useEffect(() => {
+        if (!isMenuOpen) return;
+
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [isMenuOpen]);
+
     return (
         <div className={`${ isMenuOpen ? '' : 'hidden' } fixed lg:hidden top-0 right-0 bottom-0 z-50`}>
             <div className='fixed top-0 bottom-0 right-0 w-screen backdrop-blur-sm bg-black/20'></div>
 
-            <div className='relative bg-default overflow-y h-screen w-60 p-5'>
+            <div ref={ref} className='relative bg-default overflow-y h-screen w-60 p-5'>
                 <ul className="flex flex-col space-y-8">
                     <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Solution</li>
                     <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Partners</li>

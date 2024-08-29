@@ -6,13 +6,14 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
     },
     fontFamily: {
-      'sans': ['Lato', 'sans-serif']
+      'sans': ['Lato', 'sans-serif'],
     },
     extend: {
       textColor: {
@@ -28,7 +29,7 @@ module.exports = {
           700: '#147A6F',
           800: '#0C4A43',
           900: '#041917',
-          950: '#000101'
+          950: '#000101',
         }
       },
       backgroundColor: {
@@ -45,7 +46,7 @@ module.exports = {
           700: '#147A6F',
           800: '#0C4A43',
           900: '#041917',
-          950: '#000101'
+          950: '#000101',
         }
       },
       zIndex: {
@@ -54,7 +55,10 @@ module.exports = {
         '30': '30',
         '40': '40',
         '50': '50',
-        'auto': 'auto'
+        'auto': 'auto',
+      },
+      maxWidth: {
+        '8xl': '1536px'
       }
     }
   },

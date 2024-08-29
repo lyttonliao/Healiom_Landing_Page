@@ -5,7 +5,7 @@ import content from './content';
 
 const Faq = () => {
     return (
-        <div className='min-w-40 max-w-7xl p-8 md:px-16 mx-auto '>
+        <div className='min-w-40 max-w-7xl p-8 md:px-16 mx-auto'>
             <h1 className="text-3xl font-semibold mb-4">Privacy Policy</h1>
             <h1 className="text-3xl font-semibold mb-4">HEALIOM Inc. (DBA "Healiom") PRIVACY POLICY</h1>
 

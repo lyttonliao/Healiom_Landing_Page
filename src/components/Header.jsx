@@ -33,8 +33,8 @@ const Header = ({ setIsMenuOpen }) => {
                         </button>
                     </div>
 
-                    <div className='hidden lg:flex items-center text-md leading-6 font-semibold text-slate-700'>
-                        <ul className="flex">
+                    <div className='hidden lg:flex items-center text-md leading-6 font-semibold text-slate-700 space-x-8'>
+                        <ul className="flex space-x-8">
                             <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Solution</li>
                             <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Partners</li>
                             <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Team</li>

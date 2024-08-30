@@ -1,30 +1,54 @@
 import React from 'react';
 
-const ImageTextBlock = ({ reverse }) => {
-    return (
-        <div className="min-w-40 max-w-7xl p-8 md:px-16 mx-auto">
-            <div className="flex flex-col md:flex-row">
-                <div className="flex flex-col justify-center space-y-6">
-                    <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold">Healiom</h1>
-                    <h1 className="text-2xl xl:text-3xl font-semibold">Scaling medical capacity so care + caring is easy & instant</h1>
-                    <div className="flex w-5/6 block md:hidden mx-auto py-2">
-                        <img src="/images/landing-page-iphone@2x.png" alt="landing page iphone"/>
-                    </div>
-                    <div>
-                        <h1 className="text-2xl xl:text-3xl mb-4 lg:mb-2 font-semibold">For urgent care clinics, ERs, & small-midsize orgs</h1>
-                        <p className="text-lg xl:text-xl">Healiom is a full drop-in solution, including diagnosis, e-prescribing, lab ordering, and credentialing, accessible in 3 steps: download, register, & start.</p>
-                    </div>
-                    <div>
-                        <h1 className="text-2xl xl:text-3xl mb-4 lg:mb-2 font-semibold">For health systems, health plans, & tech orgs</h1>
-                        <p className="text-lg xl:text-xl">Healiom's genAI & marketplace flex-agent platform is available as UX components and APIs.</p>
-                    </div>
-                </div>
+const ImageTextBlock = ({ data, isReversed, classNames = '' }) => {
 
-                <div className="w-5/6 md:w-full flex mx-auto md:mx-0 mt-6 md:mt-0 md:mx-4">
-                    <img src="/images/landing-page-iphone@2x.png" alt="landing page iphone"/>
+    return (
+        <>
+            {data && 
+                <div className="min-w-40 max-w-7xl px-8 md:px-16 mx-auto text-center md:text-left">
+                    <div className={`flex flex-col ${ isReversed ? 'md:flex-row-reverse' : 'md:flex-row' }`}>
+                        <div className="flex flex-col justify-center">
+
+                            {data.hasOwnProperty('mainHeading') && <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-6 text-center md:text-left">{data.mainHeading}</h1>}
+
+                            <div className="flex flex-col justify-center space-y-5">
+                                {data.texts.map((section, i) => (
+                                    <div key={i}>
+                                        {section.h && <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-center md:text-left">{section.h}</h1>}
+                                        {section.p.map((subtext, j) => {
+                                            if (Array.isArray(subtext)) {
+                                                return subtext.map((t, k) => (
+                                                    <p key={`${i}-${j}-${k}`} className={`text-base md:text-xl lg:text-2xl xl:text-3xl ${classNames} md:pl-8 mt-2`}>
+                                                        {t}
+                                                    </p>
+                                                ))
+                                            } else {
+                                                return (
+                                                    <p key={`${i}-${j}`} className={`text-base md:text-xl lg:text-2xl xl:text-3xl ${classNames} `}>   
+                                                        {subtext}
+                                                    </p>
+                                                )
+                                            }
+                                        })}
+                                    </div>
+                                ))}
+                                
+
+                                <div className={`${ data.hasButton ? 'flex justify-center' : 'hidden'}`}>
+                                    <div className="bg-primary-500 text-white rounded-md text-base md:text-xl lg:text-2xl xl:text-3xl w-max">
+                                        <button className="py-4 px-8">Request a Demo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex w-5/6 md:w-full mx-auto md:mx-0 mt-8 md:mt-0 md:mx-4">
+                            <img src={data.imgUrl} />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            }
+        </>
     )
 };
 

@@ -1,40 +1,98 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import ImageTextBlock from '../components/ImageTextBlock';
+
 
 const LandingPage = () => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch('/lp_content.json');
+            if (!res.ok) {
+                setError(res.status);
+                return;
+            };
+
+            const payload = await res.json();
+            setData(payload);
+        };
+
+        fetchData();
+    }, []);
+    
+
     return (
-        <div className="space-y-16">
-            <div className="min-w-40 max-w-7xl p-8 md:px-16 mx-auto">
-                <div className="flex flex-col md:flex-row">
-                    <div className="flex flex-col justify-center space-y-6">
-                        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold">Healiom</h1>
-                        <h1 className="text-2xl xl:text-3xl font-semibold">Scaling medical capacity so care + caring is easy & instant</h1>
-                        <div>
-                            <h1 className="text-2xl xl:text-3xl mb-4 lg:mb-2 font-semibold">For urgent care clinics, ERs, & small-midsize orgs</h1>
-                            <p className="text-lg xl:text-xl">Healiom is a full drop-in solution, including diagnosis, e-prescribing, lab ordering, and credentialing, accessible in 3 steps: download, register, & start.</p>
-                        </div>
-                        <div>
-                            <h1 className="text-2xl xl:text-3xl mb-4 lg:mb-2 font-semibold">For health systems, health plans, & tech orgs</h1>
-                            <p className="text-lg xl:text-xl">Healiom's genAI & marketplace flex-agent platform is available as UX components and APIs.</p>
+        <>
+            {data &&
+                <div className="space-y-12 mt-16">
+                    <ImageTextBlock
+                        data={data.landingPage[0]}
+                        isReversed={false}
+                        classNames="mt-6"
+                    />
+
+                    <div className="relative overflow-hidden">
+                        <div className="flex min-w-md animate-refine-slide md:animate-none">
+                            <img className="w-full" src="/images/illustration_top.png" alt="illustration top"/>
+                            <img className="w-full md:hidden" src="/images/illustration_top.png" alt="illustration top"/>
                         </div>
                     </div>
 
-                    <div className="w-5/6 md:w-full flex mx-auto md:mx-0 mt-6 md:mt-0 md:mx-4">
-                        <img src="/images/landing-page-iphone@2x.png" alt="landing page iphone"/>
+                    <div className="space-y-8 md:px-16">
+                        <h1 className="text-2xl xl:text-3xl font-semibold text-center">Our Partners</h1>
+                        <div className="relative overflow-hidden">
+                            <div className="flex min-w-md justify-center items-center animate-refine-slide md:animate-none">
+                                <img className="px-5" src="/images/partners-group.png" alt="partners"/>
+                                <img className="px-5 md:hidden" src="/images/partners-group.png" alt="partners"/>
+                                <img className="px-5 md:hidden" src="/images/partners-group.png" alt="partners"/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div>
-                <img src="/images/illustration_top.png" alt="illustration top"/>
-            </div>
+                    <div className="min-w-40 max-w-7xl py-6 px-8 md:px-16 mx-auto text-center">
+                        <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4 ">Healiom is designed to solve the capacity problem.</h1>
+                        <p className="text-base md:text-xl lg:text-2xl xl:text-3xl">Using Healiom's clinically proven GenAI and marketplace dynamics similar to ride-sharing, we can support expanding the breadth of care handled remotely, saving time, and solving the supply-demand mismatch.</p>
+                    </div>
 
-            <div className="space-y-8 px-8 md:py-16">
-                <h1 className="text-2xl xl:text-3xl font-semibold text-center">Our Partners</h1>
-                <div className="flex justify-center items-center">
-                    <img src="/images/partners-group.png" alt="partners"/>
+                    {data.landingPage.slice(1, data.landingPage.length - 2).map((d, i) => {
+                        return (
+                            <ImageTextBlock
+                                key={i + 1}
+                                data={d}
+                                isReversed={ i % 2 !== 0 }
+                                classNames="mt-6"
+                            />
+                        )
+                    })}
+
+                    <div className="relative overflow-hidden">
+                        <div className="flex min-w-md animate-refine-slide md:animate-none">
+                            <img className="w-full" src="/images/illustration.png" alt="illustration bottom"/>
+                            <img className="w-full md:hidden" src="/images/illustration.png" alt="illustration bottom"/>
+                        </div>
+                    </div>
+
+                    <div className="min-w-40 max-w-7xl py-6 px-8 md:px-16 mx-auto text-center">
+                        <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4 ">Healiom is available as a standalone app, UX components, or APIs.</h1>
+                        <p className="text-base md:text-xl lg:text-2xl xl:text-3xl">We've combined the best of what's available in the market with our clinically proven GenAI, Holmes, to capture, interpret, and operationally leverage data for remote care.</p>
+                    </div>
+
+                    <ImageTextBlock
+                        data={data.landingPage[data.landingPage.length - 2]}
+                        isReversed={false}
+                        classNames="mt-6"
+                    />
+
+                    <ImageTextBlock
+                        data={data.landingPage[data.landingPage.length - 1]}
+                        isReversed={true}
+                        classNames="mt-6"
+                    />
                 </div>
-            </div>
-        </div>
+            }
+        </>
     )
 };
 

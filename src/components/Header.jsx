@@ -41,7 +41,7 @@ const Header = ({ setIsMenuOpen }) => {
                         </ul>
 
                         <div className="bg-primary-500 text-white rounded-md">
-                            <button className="py-1 px-2">Request a Demo</button>
+                            <button className="py-2 px-4">Request a Demo</button>
                         </div>
                     </div>
                 </div>

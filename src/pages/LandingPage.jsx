@@ -30,7 +30,6 @@ const LandingPage = () => {
                     <ImageTextBlock
                         data={data.landingPage[0]}
                         isReversed={false}
-                        classNames="mt-6"
                     />
 
                     <div className="relative overflow-hidden">
@@ -62,7 +61,6 @@ const LandingPage = () => {
                                 key={i + 1}
                                 data={d}
                                 isReversed={ i % 2 !== 0 }
-                                classNames="mt-6"
                             />
                         )
                     })}
@@ -74,21 +72,20 @@ const LandingPage = () => {
                         </div>
                     </div>
 
-                    <div className="min-w-40 max-w-7xl py-6 px-8 md:px-16 mx-auto text-center">
+                    <ImageTextBlock
+                        data={data.landingPage[data.landingPage.length - 2]}
+                        isReversed={false}
+                    />
+
+                    
+                    <div className="min-w-40 max-w-7xl py-8 px-8 md:px-16 mx-auto text-center">
                         <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-4 ">Healiom is available as a standalone app, UX components, or APIs.</h1>
                         <p className="text-base md:text-xl lg:text-2xl xl:text-3xl">We've combined the best of what's available in the market with our clinically proven GenAI, Holmes, to capture, interpret, and operationally leverage data for remote care.</p>
                     </div>
 
                     <ImageTextBlock
-                        data={data.landingPage[data.landingPage.length - 2]}
-                        isReversed={false}
-                        classNames="mt-6"
-                    />
-
-                    <ImageTextBlock
                         data={data.landingPage[data.landingPage.length - 1]}
                         isReversed={true}
-                        classNames="mt-6"
                     />
                 </div>
             }

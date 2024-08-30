@@ -11,20 +11,20 @@ const ImageTextBlock = ({ data, isReversed, classNames = '' }) => {
 
                             {data.hasOwnProperty('mainHeading') && <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold mb-6 text-center md:text-left">{data.mainHeading}</h1>}
 
-                            <div className="flex flex-col justify-center space-y-5">
+                            <div className="flex flex-col justify-center space-y-6">
                                 {data.texts.map((section, i) => (
                                     <div key={i}>
                                         {section.h && <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-center md:text-left">{section.h}</h1>}
                                         {section.p.map((subtext, j) => {
                                             if (Array.isArray(subtext)) {
                                                 return subtext.map((t, k) => (
-                                                    <p key={`${i}-${j}-${k}`} className={`text-base md:text-xl lg:text-2xl xl:text-3xl ${classNames} md:pl-8 mt-2`}>
+                                                    <p key={`${i}-${j}-${k}`} className={`text-base md:text-lg lg:text-xl xl:text-2xl md:pl-8 mt-2`}>
                                                         {t}
                                                     </p>
                                                 ))
                                             } else {
                                                 return (
-                                                    <p key={`${i}-${j}`} className={`text-base md:text-xl lg:text-2xl xl:text-3xl ${classNames} `}>   
+                                                    <p key={`${i}-${j}`} className={`text-base md:text-lg lg:text-xl xl:text-2xl mt-6`}>   
                                                         {subtext}
                                                     </p>
                                                 )
@@ -34,15 +34,15 @@ const ImageTextBlock = ({ data, isReversed, classNames = '' }) => {
                                 ))}
                                 
 
-                                <div className={`${ data.hasButton ? 'flex justify-center' : 'hidden'}`}>
-                                    <div className="bg-primary-500 text-white rounded-md text-base md:text-xl lg:text-2xl xl:text-3xl w-max">
-                                        <button className="py-4 px-8">Request a Demo</button>
+                                <div className={`${ data.hasButton ? 'flex' : 'hidden'} justify-center md:justify-start`}>
+                                    <div className="bg-primary-500 text-white rounded-md text-base md:text-lg lg:text-xl xl:text-xl">
+                                        <button className="py-3 px-6">Request a Demo</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="flex w-5/6 md:w-full mx-auto md:mx-0 mt-8 md:mt-0 md:mx-4">
+                        <div className="flex mx-auto md:mx-0 mt-8 md:mt-0 md:mx-4 max-w-2xl">
                             <img src={data.imgUrl} />
                         </div>
                     </div>

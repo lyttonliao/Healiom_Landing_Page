@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     './public/index.html',
@@ -76,6 +77,12 @@ module.exports = {
         "refine-slide": "smooth-slide 15s linear infinite",
         "none": "none"
       },
+      gridAutoColumns: {
+        '1/5': '20%',
+        '1/4': '25%',
+        '1/3': '33.33%',
+        '1/2': '50%'
+      }
     }
   },
   plugins: []

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import ImageTextBlock from '../components/ImageTextBlock';
+import Slider from '../components/Slider';
 
 
 const LandingPage = () => {
@@ -24,9 +25,9 @@ const LandingPage = () => {
     
 
     return (
-        <>
+        <div className="my-16">
             {data &&
-                <div className="space-y-12 mt-16">
+                <div className="space-y-12">
                     <ImageTextBlock
                         data={data.landingPage[0]}
                         isReversed={false}
@@ -87,9 +88,13 @@ const LandingPage = () => {
                         data={data.landingPage[data.landingPage.length - 1]}
                         isReversed={true}
                     />
+
+                    <Slider
+                        data={data.portraits}
+                    />
                 </div>
             }
-        </>
+        </div>
     )
 };
 

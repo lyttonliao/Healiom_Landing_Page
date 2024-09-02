@@ -35,9 +35,9 @@ const Header = ({ setIsMenuOpen }) => {
 
                     <div className='hidden lg:flex items-center text-md leading-6 font-semibold text-slate-700 space-x-8'>
                         <ul className="flex space-x-8">
-                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Solution</li>
-                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Partners</li>
-                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Team</li>
+                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#solution">Solution</a></li>
+                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#partners">Partners</a></li>
+                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#team">Team</a></li>
                         </ul>
 
                         <div className="bg-primary-500 text-white rounded-md">

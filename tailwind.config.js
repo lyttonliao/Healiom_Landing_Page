@@ -17,8 +17,7 @@ module.exports = {
       'sans': ['Lato', 'sans-serif'],
     },
     extend: {
-      textColor: {
-        'default': '#1b1e29',
+      colors: {
         'primary': {
           '50': 'C1F5EF',
           '100': '#AFF2EB',
@@ -33,22 +32,13 @@ module.exports = {
           '950': '#000101',
         }
       },
+      textColor: {
+        'default': '#1b1e29',
+
+      },
       backgroundColor: {
         'default': '#f7f8fb',
         'footer': '#353741',
-        'primary': {
-          '50': 'C1F5EF',
-          '100': '#AFF2EB',
-          '200': '#8CECE2',
-          '300': '#69E6D9',
-          '400': '#46E0D0',
-          '500': '#24dac6',
-          '600': '#1CAA9A',
-          '700': '#147A6F',
-          '800': '#0C4A43',
-          '900': '#041917',
-          '950': '#000101',
-        }
       },
       zIndex: {
         '10': '10',

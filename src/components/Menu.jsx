@@ -23,9 +23,9 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }) => {
 
             <div ref={ref} className='relative bg-default overflow-y h-screen w-60 p-5'>
                 <ul className="flex flex-col space-y-8">
-                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Solution</li>
-                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Partners</li>
-                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer">Team</li>
+                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#solution" onClick={() => setIsMenuOpen(false)}>Solution</a></li>
+                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer" onClick={() => setIsMenuOpen(false)}><a href="#partners">Partners</a></li>
+                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer" onClick={() => setIsMenuOpen(false)}><a href="#team">Team</a></li>
                 </ul>
 
                 <div className="absolute top-4 right-5">

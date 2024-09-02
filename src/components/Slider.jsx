@@ -1,16 +1,18 @@
 import React, { useState, useCallback, useMemo, useRef } from 'react';
 
-const Slider = ({ data, slidesToShow = 3, slidesToScroll = 3 }) => {
+const Slider = ({ data, slidesToShow = 3, slidesToScroll = 1 }) => {
     const [index, setIndex] = useState(0);
-    const containerRef = useRef(null);
+    const sliderRef = useRef(null);
 
     const handleClickBack = useCallback(() => {
-        setIndex(prev => (prev - slidesToScroll) % data.length);
-    }, []);
+        setIndex(prev => (prev - slidesToScroll + data.length) % data.length);
+        sliderRef.current.style.transform = `translate(${(index - 1)  * 100 * slidesToScroll / slidesToShow}%)`;
+    }, [index, slidesToScroll, slidesToShow]);
 
     const handleClickNext = useCallback(() => {
         setIndex(prev => (prev + slidesToScroll) % data.length);
-    }, []);
+        sliderRef.current.style.transform = `translate(-${(index + 1) * 100 * slidesToScroll / slidesToShow}%)`; 
+    }, [index, slidesToScroll, slidesToShow]);
 
     const processedData = useMemo(() => [...data.slice(index), ...data.slice(0, index)], [data, index]);
 
@@ -27,16 +29,18 @@ const Slider = ({ data, slidesToShow = 3, slidesToScroll = 3 }) => {
                 </button>
             </div>
 
-            <div 
-                className="grid grid-flow-col auto-cols-1/3 transition-all duration-500 ease-in-out overflow-hidden"
-                // style={{ transform: `translateX(-${slidesToScroll / slidesToShow}%)`}}
-            >
-                {processedData.map((d, i) => (
-                    <div key={i} className="flex flex-col items-center px-6 pt-2">
-                        <img src={d.imgUrl} alt={d.name} />
-                        <p className="text-center text-[#0086c3]">{d.name}</p>
-                    </div>
-                ))}
+            <div className="overflow-hidden">
+                <div 
+                    className="grid grid-flow-col auto-cols-1/3 transition-transform duration-500 ease-in-out"
+                    ref={sliderRef}
+                >
+                    {processedData.map((d, i) => (
+                        <div key={i} className="flex flex-col items-center px-6 pt-2">
+                            <img src={d.imgUrl} alt={d.name} />
+                            <p className="text-center text-[#0086c3]">{d.name}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div className="absolute top-1/2 right-2 md:right-8 transform -translate-y-1/2">

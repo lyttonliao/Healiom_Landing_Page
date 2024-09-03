@@ -3,7 +3,16 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../public/images/logo.png';
 
-const Header = ({ setIsMenuOpen }) => {
+const Header = ({ setIsMenuOpen, refs }) => {
+
+    const { solutionRef, partnersRef, teamRef } = refs;
+
+    const handleClickLocation = (ref) => {
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth'})
+            setIsMenuOpen(false);
+        }
+    };
 
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
@@ -16,11 +25,11 @@ const Header = ({ setIsMenuOpen }) => {
 
     return (
         <div id="header" className="sticky z-10 bg-default top-0">
-            <div className="px-4 py-2">
+            <div className="px-6 md:px-12 py-2">
                 <div className="flex items-center justify-between">
                     <button>
                         <Link to="/">
-                            <img className="h-12" src={logo} alt="Logo"/>
+                            <img className="h-14" src={logo} alt="Logo"/>
                         </Link>
                     </button>
 
@@ -33,14 +42,29 @@ const Header = ({ setIsMenuOpen }) => {
                         </button>
                     </div>
 
-                    <div className='hidden lg:flex items-center text-md leading-6 font-semibold text-slate-700 space-x-8'>
+                    <div className='hidden lg:flex items-center leading-6 font-semibold text-slate-700 space-x-8'>
                         <ul className="flex space-x-8">
-                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#solution">Solution</a></li>
-                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#partners">Partners</a></li>
-                            <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#team">Team</a></li>
+                            <li 
+                                className="hover:text-primary-500 hover:text-primary-700 md:text-lg cursor-pointer tracking-wide"
+                                onClick={() => handleClickLocation(solutionRef)}
+                            >
+                                <a href="#solution">Solution</a>
+                            </li>
+                            <li 
+                                className="hover:text-primary-500 hover:text-primary-700 md:text-lg cursor-pointer tracking-wide"
+                                onClick={() => handleClickLocation(partnersRef)}
+                            >
+                                <a href="#partners">Partners</a>
+                            </li>
+                            <li 
+                                className="hover:text-primary-500 hover:text-primary-700 md:text-lg cursor-pointer tracking-wide"
+                                onClick={() => handleClickLocation(teamRef)}
+                            >
+                                <a href="#team">Team</a>
+                            </li>
                         </ul>
 
-                        <div className="bg-primary-500 text-white rounded-md">
+                        <div className="bg-primary-500 text-white text-lg rounded-md">
                             <button className="py-2 px-4">Request a Demo</button>
                         </div>
                     </div>

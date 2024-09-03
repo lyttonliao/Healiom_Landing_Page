@@ -1,13 +1,22 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom'
 
-const Menu = ({ isMenuOpen, setIsMenuOpen }) => {
-    const ref = useRef(null);
+const Menu = ({ isMenuOpen, setIsMenuOpen, refs }) => {
+    const menuRef = useRef(null);
+    const { solutionRef, partnersRef, teamRef } = refs;
+
+    const handleClickLocation = (ref) => {
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth'})
+            setIsMenuOpen(false);
+        }
+    };
 
     useEffect(() => {
         if (!isMenuOpen) return;
 
         const handleClickOutside = (event) => {
-            if (ref.current && !ref.current.contains(event.target)) {
+            if (menuRef && menuRef.current && !menuRef.current.contains(event.target)) {
                 setIsMenuOpen(false);
             }
         };
@@ -21,12 +30,57 @@ const Menu = ({ isMenuOpen, setIsMenuOpen }) => {
         <div className={`${ isMenuOpen ? '' : 'hidden' } fixed lg:hidden top-0 right-0 bottom-0 z-50`}>
             <div className='fixed top-0 bottom-0 right-0 w-screen backdrop-blur-sm bg-black/20'></div>
 
-            <div ref={ref} className='relative bg-default overflow-y h-screen w-60 p-5'>
-                <ul className="flex flex-col space-y-8">
-                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer"><a href="#solution" onClick={() => setIsMenuOpen(false)}>Solution</a></li>
-                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer" onClick={() => setIsMenuOpen(false)}><a href="#partners">Partners</a></li>
-                    <li className="hover:text-primary-500 hover:text-primary-700 cursor-pointer" onClick={() => setIsMenuOpen(false)}><a href="#team">Team</a></li>
-                </ul>
+            <div className='relative'>
+                <div ref={menuRef} className='bg-default overflow-y h-screen w-60 p-5 space-y-8'>
+                    <ul className="flex flex-col space-y-6">
+                        <li className="font-semibold hover:text-primary-500 hover:text-primary-700 cursor-pointer">
+                            Main Page
+                        </li>
+                        <li 
+                            className="hover:text-primary-500 hover:text-primary-700 cursor-pointer pl-4" 
+                            onClick={() => handleClickLocation(solutionRef)}
+                        >
+                            <a href="#solution" >Solution</a>
+                        </li>
+                        <li 
+                            className="hover:text-primary-500 hover:text-primary-700 cursor-pointer pl-4" 
+                            onClick={() => handleClickLocation(partnersRef)}
+                        >
+                            <a href="#partners">Partners</a>
+                        </li>
+                        <li 
+                            className="hover:text-primary-500 hover:text-primary-700 cursor-pointer pl-4" 
+                            onClick={() => handleClickLocation(teamRef)}
+                        >
+                            <a href="#team">Team</a></li>
+                    </ul>
+
+                    <div 
+                        className="font-semibold hover:text-primary-500 hover:text-primary-700 cursor-pointer"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        <Link to="/faq">Faq</Link>
+                    </div>
+
+                    <div 
+                        className="font-semibold hover:text-primary-500 hover:text-primary-700 cursor-pointer"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        <Link to="/terms-of-use">Terms of Use</Link>
+                    </div>
+                    
+                    <div 
+                        className="font-semibold hover:text-primary-500 hover:text-primary-700 cursor-pointer"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        <Link to="/healiom-privacy">Privacy Policy</Link>
+                    </div>
+                    
+                    <div className="font-semibold hover:text-primary-500 hover:text-primary-700 cursor-pointer">
+                        Contact Us
+                    </div>
+
+                </div>
 
                 <div className="absolute top-4 right-5">
                     <button className="flex h-full rounded-full hover:bg-gray-200 p-1" onClick={() => setIsMenuOpen(false)}>

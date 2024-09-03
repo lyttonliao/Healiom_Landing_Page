@@ -3,7 +3,7 @@ import React from 'react';
 const ImageTextBlock = ({ data, isReversed }) => {
 
     return (
-        <div className="min-w-40 max-w-7xl px-8 md:px-16 mx-auto text-center md:text-left">
+        <div className="min-w-40 max-w-7xl px-6 md:px-12 mx-auto text-center md:text-left">
             <div className={`flex flex-col ${ isReversed ? 'md:flex-row-reverse' : 'md:flex-row' }`}>
                 <div className="flex flex-col justify-center">
 
@@ -16,7 +16,7 @@ const ImageTextBlock = ({ data, isReversed }) => {
                                 {section.p.map((subtext, j) => {
                                     if (Array.isArray(subtext)) {
                                         return subtext.map((t, k) => (
-                                            <p key={`${i}-${j}-${k}`} className={`text-sm md:text-base lg:text-lg xl:text-xl md:pl-12 mt-1 italic`}>
+                                            <p key={`${i}-${j}-${k}`} className={`text-sm md:text-base lg:text-lg xl:text-xl md:pl-10 mt-1 italic`}>
                                                 {t}
                                             </p>
                                         ))

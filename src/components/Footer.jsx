@@ -7,7 +7,7 @@ import twitterIcon from '../../public/images/twitter.png'
 const Footer = () => {
     return (
         <div className="bg-footer w-full">
-            <div className="p-8 md:px-16 max-w-7xl mx-auto">
+            <div className="p-6 md:px-12 max-w-7xl mx-auto">
                 <div className="flex flex-col">
                     <div className="text-white text-lg">
                         <Link to="/faq">Faq</Link>

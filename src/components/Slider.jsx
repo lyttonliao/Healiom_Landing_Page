@@ -17,7 +17,7 @@ const Slider = ({ data, slidesToShow = 3, slidesToScroll = 1 }) => {
     const processedData = useMemo(() => [...data.slice(index), ...data.slice(0, index)], [data, index]);
 
     return (
-        <div className="relative max-w-4xl mx-auto px-8 md:px-16">
+        <div className="relative max-w-4xl mx-auto px-6 md:px-12">
             <div className="absolute top-1/2 left-2 md:left-8 transform -translate-y-1/2">
                 <button 
                     className="rounded-full text-slate-700 hover:text-primary-500 hover:bg-gray-200 p-1"

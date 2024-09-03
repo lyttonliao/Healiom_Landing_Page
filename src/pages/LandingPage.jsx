@@ -6,10 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const LandingPage = () => {
+const LandingPage = ({ refs }) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
+
     const sliderRef = useRef(null);
+    const { solutionRef, partnersRef, teamRef } = refs;
 
     const sliderSettings = {
         ref: sliderRef,
@@ -68,15 +70,11 @@ const LandingPage = () => {
 
         fetchData();
     }, []);
-    
-    if (data) {
-        console.log(data.portraits)
-    }
 
     return (
         <div className="my-16">
             {data &&
-                <div className="space-y-12">
+                <div className="space-y-14">
                     <ImageTextBlock
                         data={data.landingPage[0]}
                         isReversed={false}
@@ -89,18 +87,18 @@ const LandingPage = () => {
                         </div>
                     </div>
 
-                    <div id="solution" className="min-w-40 max-w-7xl pt-20 px-8 md:px-16 mx-auto text-center">
+                    <div ref={solutionRef} className="min-w-40 max-w-7xl md:pt-24 px-6 md:px-12 mx-auto text-center scroll-mt-20">
                         <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6">Healiom is designed to solve the capacity problem.</h1>
                         <p className="text-base md:text-xl lg:text-2xl xl:text-3xl">Using Healiom's clinically proven GenAI and marketplace dynamics similar to ride-sharing, we can support expanding the breadth of care handled remotely, saving time, and solving the supply-demand mismatch.</p>
                     </div>
 
-                    <div id="partners" className="space-y-8 md:px-16 py-20">
+                    <div ref={partnersRef} className="space-y-8 md:px-16 md:py-24 scroll-mt-20">
                         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-center">Our Partners</h1>
                         <div className="relative overflow-hidden">
                             <div className="flex min-w-md justify-center items-center animate-refine-slide md:animate-none">
-                                <img className="px-6" src="/images/partners-group.png" alt="partners"/>
-                                <img className="px-6 md:hidden" src="/images/partners-group.png" alt="partners"/>
-                                <img className="px-6 md:hidden" src="/images/partners-group.png" alt="partners"/>
+                                <img className="px-6 min-h-16" src="/images/partners-group.png" alt="partners"/>
+                                <img className="px-6 md:hidden min-h-16" src="/images/partners-group.png" alt="partners"/>
+                                <img className="px-6 md:hidden min-h-16" src="/images/partners-group.png" alt="partners"/>
                             </div>
                         </div>
                     </div>
@@ -115,7 +113,7 @@ const LandingPage = () => {
                         )
                     })}
 
-                    <div className="relative overflow-hidden py-8">
+                    <div className="relative overflow-hidden md:py-12">
                         <div className="flex min-w-md animate-refine-slide md:animate-none">
                             <img className="w-full" src="/images/illustration.png" alt="illustration bottom"/>
                             <img className="w-full md:hidden" src="/images/illustration.png" alt="illustration bottom"/>
@@ -127,7 +125,7 @@ const LandingPage = () => {
                         isReversed={false}
                     />
                     
-                    <div className="min-w-40 max-w-7xl pt-20 pb-14 px-8 md:px-16 mx-auto text-center">
+                    <div className="min-w-40 max-w-7xl md:py-24 px-6 md:px-12 mx-auto text-center">
                         <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6">Healiom is available as a standalone app, UX components, or APIs.</h1>
                         <p className="text-base md:text-xl lg:text-2xl xl:text-3xl">We've combined the best of what's available in the market with our clinically proven GenAI, Holmes, to capture, interpret, and operationally leverage data for remote care.</p>
                     </div>
@@ -137,7 +135,7 @@ const LandingPage = () => {
                         isReversed={true}
                     />
 
-                    <div id="team" className="max-w-7xl mx-auto px-8 md:px-16 pt-8 text-center">
+                    <div ref={teamRef} className="max-w-7xl mx-auto px-6 md:px-12 md:pt-12 text-center">
                         <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6">Healiom is supported by a global team with decades of experience in healthcare and technology entrepreneurship.</h1>
 
                         <div className="relative">

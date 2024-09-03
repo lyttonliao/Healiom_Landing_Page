@@ -1,15 +1,19 @@
 import React, { useRef, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Menu = ({ isMenuOpen, setIsMenuOpen, refs }) => {
+    const navigate = useNavigate();
     const menuRef = useRef(null);
     const { solutionRef, partnersRef, teamRef } = refs;
 
     const handleClickLocation = (ref) => {
-        if (ref && ref.current) {
-            ref.current.scrollIntoView({ behavior: 'smooth'})
-            setIsMenuOpen(false);
-        }
+        navigate("/")
+        setTimeout(() => {
+            if (ref && ref.current) {
+                ref.current.scrollIntoView({ behavior: 'smooth'})
+                setIsMenuOpen(false);
+            }
+        }, 100)
     };
 
     useEffect(() => {

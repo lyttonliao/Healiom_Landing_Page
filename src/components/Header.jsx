@@ -1,17 +1,20 @@
-import React, { useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '../../public/images/logo.png';
 
 const Header = ({ setIsMenuOpen, refs }) => {
-
+    const navigate = useNavigate();
     const { solutionRef, partnersRef, teamRef } = refs;
 
     const handleClickLocation = (ref) => {
-        if (ref && ref.current) {
-            ref.current.scrollIntoView({ behavior: 'smooth'})
-            setIsMenuOpen(false);
-        }
+        navigate("/")
+        setTimeout(() => {
+            if (ref && ref.current) {
+                ref.current.scrollIntoView({ behavior: 'smooth'})
+                setIsMenuOpen(false);
+            }
+        }, 100)
     };
 
     window.addEventListener('scroll', function() {

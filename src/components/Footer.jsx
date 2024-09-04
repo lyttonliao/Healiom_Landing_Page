@@ -18,7 +18,7 @@ const Footer = ({ setIsModalOpen }) => {
                     <div className="text-white text-lg">
                         <Link to="/healiom-privacy">Privacy Policy</Link>
                     </div>
-                    <div className="text-white text-lg" onClick={() => setIsModalOpen(true)}>
+                    <div className="text-white text-lg cursor-pointer" onClick={() => setIsModalOpen(true)}>
                         Contact Us
                     </div>
 

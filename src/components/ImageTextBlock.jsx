@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageTextBlock = ({ data, isReversed }) => {
+const ImageTextBlock = ({ data, isReversed, setIsModalOpen = null }) => {
 
     return (
         <div className="min-w-40 max-w-7xl px-6 md:px-12 mx-auto text-center md:text-left">
@@ -34,7 +34,7 @@ const ImageTextBlock = ({ data, isReversed }) => {
 
                         <div className={`${ data.hasButton ? 'flex' : 'hidden'} justify-center md:justify-start`}>
                             <div className="bg-primary-500 text-white rounded-md text-base md:text-lg lg:text-xl xl:text-xl">
-                                <button className="py-3 px-6">Request a Demo</button>
+                                <button className="py-3 px-6" onClick={() => setIsModalOpen(true)}>Request a Demo</button>
                             </div>
                         </div>
                     </div>

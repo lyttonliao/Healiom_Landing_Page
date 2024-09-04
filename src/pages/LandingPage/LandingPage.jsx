@@ -1,17 +1,34 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import ImageTextBlock from '../components/ImageTextBlock';
+import ImageTextBlock from '../../components/ImageTextBlock';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const LandingPage = ({ refs }) => {
+const LandingPage = ({ setIsModalOpen }) => {
     const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     const sliderRef = useRef(null);
-    const { solutionRef, partnersRef, teamRef } = refs;
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (loading) return;
+
+        const { hash } = location;
+        if (hash) {
+            const el = document.getElementById(hash.slice(1));
+            
+            if (el) {
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }, 100)
+            }
+        }
+    }, [location, loading]);
 
     const sliderSettings = {
         ref: sliderRef,
@@ -55,7 +72,7 @@ const LandingPage = ({ refs }) => {
             sliderRef.current.slickPrev();
         }
     }, [sliderRef]);
-
+    
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch('/lp_content.json');
@@ -66,6 +83,7 @@ const LandingPage = ({ refs }) => {
 
             const payload = await res.json();
             setData(payload);
+            setLoading(false);
         };
 
         fetchData();
@@ -78,21 +96,22 @@ const LandingPage = ({ refs }) => {
                     <ImageTextBlock
                         data={data.landingPage[0]}
                         isReversed={false}
+                        setIsModalOpen={setIsModalOpen}
                     />
 
-                    <div className="relative overflow-hidden pt-8">
+                    <div className="relative overflow-hidden md:pt-8">
                         <div className="flex min-w-md animate-refine-slide md:animate-none">
                             <img className="w-full" src="/images/illustration_top.png" alt="illustration top"/>
                             <img className="w-full md:hidden" src="/images/illustration_top.png" alt="illustration top"/>
                         </div>
                     </div>
 
-                    <div ref={solutionRef} className="min-w-40 max-w-7xl md:pt-24 px-6 md:px-12 mx-auto text-center scroll-mt-20">
+                    <div id="solution" className="min-w-40 max-w-7xl md:pt-24 px-6 md:px-12 mx-auto text-center scroll-mt-20 md:scroll-mt-0">
                         <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6">Healiom is designed to solve the capacity problem.</h1>
                         <p className="text-base md:text-xl lg:text-2xl xl:text-3xl">Using Healiom's clinically proven GenAI and marketplace dynamics similar to ride-sharing, we can support expanding the breadth of care handled remotely, saving time, and solving the supply-demand mismatch.</p>
                     </div>
 
-                    <div ref={partnersRef} className="space-y-8 md:px-16 md:py-24 scroll-mt-20">
+                    <div id="partners" className="space-y-8 md:px-16 md:py-24 scroll-mt-20 md:scroll-mt-0">
                         <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-center">Our Partners</h1>
                         <div className="relative overflow-hidden">
                             <div className="flex min-w-md justify-center items-center animate-refine-slide md:animate-none">
@@ -133,9 +152,10 @@ const LandingPage = ({ refs }) => {
                     <ImageTextBlock
                         data={data.landingPage[data.landingPage.length - 1]}
                         isReversed={true}
+                        setIsModalOpen={setIsModalOpen}
                     />
 
-                    <div ref={teamRef} className="max-w-7xl mx-auto px-6 md:px-12 md:pt-12 text-center">
+                    <div id="team" className="max-w-7xl mx-auto px-6 md:px-12 md:pt-12 text-center">
                         <h1 className="text-primary-500 text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6">Healiom is supported by a global team with decades of experience in healthcare and technology entrepreneurship.</h1>
 
                         <div className="relative">

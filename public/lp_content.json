@@ -110,55 +110,83 @@
     "portraits": [
         {
             "name": "Ash Damle",
-            "imgUrl": "/images/AshD.png"
+            "imgUrl": "/images/AshD.png",
+            "linkedInUrl": "https://www.linkedin.com/in/ashdamle/"
         },
         {
             "name": "Rakesh Nemade",
-            "imgUrl": "/images/RakeshN.png"
+            "imgUrl": "/images/RakeshN.png",
+            "linkedInUrl": "https://www.linkedin.com/in/rakesh-nemade-73072113/"
         },
         {
             "name": "Carla Gallegos",
-            "imgUrl": "/images/CarlaG.png"
+            "imgUrl": "/images/CarlaG.png",
+            "linkedInUrl": "https://www.linkedin.com/in/carlaegallegos/"
+
         },
         {
             "name": "Dr. Sean Howse",
-            "imgUrl": "/images/SeanH.png"
+            "imgUrl": "/images/SeanH.png",
+            "linkedInUrl": "https://www.linkedin.com/in/sean-joseph-howse-md-mba-51954397/"
+
         },
         {
             "name": "Elizabeth Crowell",
-            "imgUrl": "/images/LizC.png"
+            "imgUrl": "/images/LizC.png",
+            "linkedInUrl": "https://www.linkedin.com/in/mlizcro/"
+
         },
         {
             "name": "Kuldip Ahluwalia",
-            "imgUrl": "/images/KuldipA.png"
+            "imgUrl": "/images/KuldipA.png",
+            "linkedInUrl": "https://www.linkedin.com/in/kuldip-k-ahluwalia/"
+
         },
         {
             "name": "Susana Craig",
-            "imgUrl": "/images/SusanaC.png"
+            "imgUrl": "/images/SusanaC.png",
+            "linkedInUrl": "https://www.linkedin.com/in/craigsusana/"
+
         },
         {
             "name": "Dr. Alex Mohseni",
-            "imgUrl": "/images/AlexM.png"
+            "imgUrl": "/images/AlexM.png",
+            "linkedInUrl": "https://www.linkedin.com/in/alex-mohseni-md-facep-2142b87/"
+
         },
         {
             "name": "Mick Murray",
-            "imgUrl": "/images/MickM.png"
+            "imgUrl": "/images/MickM.png",
+            "linkedInUrl": "https://www.linkedin.com/in/michael-a-mick-murray-324b29/"
+
         },
         {
             "name": "Chris Stevens",
             "imgUrl": "/images/ChrisS.png"
-        },        {
+        },        
+        {
             "name": "Kevin Park",
-            "imgUrl": "/images/KevinP.png"
-        },        {
+            "imgUrl": "/images/KevinP.png",
+            "linkedInUrl": "https://www.linkedin.com/in/kevin-s-park/"
+
+        },        
+        {
             "name": "Dr. Pomesh Nemade",
-            "imgUrl": "/images/PomeshN.png"
-        },        {
+            "imgUrl": "/images/PomeshN.png",
+            "linkedInUrl": "https://www.linkedin.com/in/pomesh-nemade-a99656259/"
+
+        },        
+        {
             "name": "Manish Asodekar",
-            "imgUrl": "/images/ManishA.png"
-        },        {
+            "imgUrl": "/images/ManishA.png",
+            "linkedInUrl": "https://www.linkedin.com/in/manish-asodekar-3a4b44115/"
+
+        },        
+        {
             "name": "Ashis Kiran",
-            "imgUrl": "/images/AshisK.png"
+            "imgUrl": "/images/AshisK.png",
+            "linkedInUrl": "https://www.linkedin.com/in/ashis-kiran-3b3499154/"
+
         }
     ]
 }

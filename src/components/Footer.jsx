@@ -4,7 +4,7 @@ import linkedInIcon from '../../public/images/linkedin.png';
 import twitterIcon from '../../public/images/twitter.png'
 
 
-const Footer = () => {
+const Footer = ({ setIsModalOpen }) => {
     return (
         <div className="bg-footer w-full">
             <div className="p-6 md:px-12 max-w-7xl mx-auto">
@@ -18,8 +18,8 @@ const Footer = () => {
                     <div className="text-white text-lg">
                         <Link to="/healiom-privacy">Privacy Policy</Link>
                     </div>
-                    <div className="text-white text-lg">
-                        <Link to="/contact-us">Contact Us</Link>
+                    <div className="text-white text-lg" onClick={() => setIsModalOpen(true)}>
+                        Contact Us
                     </div>
 
                 </div>
@@ -30,10 +30,10 @@ const Footer = () => {
                     </div>
                     <div className="flex space-x-4 items-center">
                         <div className="w-8 h-8">
-                            <button><img src={linkedInIcon} alt="Linkedin"/></button>
+                            <a href="https://www.linkedin.com/company/healiom/" target="_blank"><img src={linkedInIcon} alt="Linkedin"/></a>
                         </div>
                         <div className="w-8 h-8">
-                            <button><img src={twitterIcon} alt="Twitter"/></button>
+                            <a href="http://twitter.com/HealiomTeam" target="_blank"><img src={twitterIcon} alt="Twitter"/></a>
                         </div>
                     </div>
                 </div>

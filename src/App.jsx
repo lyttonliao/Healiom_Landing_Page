@@ -11,14 +11,14 @@ import TermsOfUse from './pages/TermsOfUse/TermsOfUse';
 import Contact from './components/Contact';
 
 
-const Layout = ({ headerProps, menuProps, modalProps }) => {
+const Layout = ({ headerProps, menuProps, footerProps, modalProps }) => {
     return (
         <div className='relative z-0'>
             <ScrollRestoration />
 
             <Header { ...headerProps } />
             <Outlet />
-            <Footer />
+            <Footer { ...footerProps } />
 
             <Menu { ...menuProps } />
             <Contact { ...modalProps } />
@@ -37,6 +37,7 @@ const App = () => {
                 <Layout 
                     headerProps={{ setIsMenuOpen, setIsModalOpen }}
                     menuProps={{ isMenuOpen, setIsMenuOpen, setIsModalOpen }}
+                    footerProps={{ setIsModalOpen }}
                     modalProps={{ isModalOpen, setIsModalOpen }}
                 />
             ),

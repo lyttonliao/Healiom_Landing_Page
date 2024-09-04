@@ -75,7 +75,7 @@ const LandingPage = ({ setIsModalOpen }) => {
     
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch('/lp_content.json');
+            const res = await fetch(`${process.env.PUBLIC_URL}/lp_content.json`);
             if (!res.ok) {
                 setError(res.status);
                 return;
@@ -179,10 +179,10 @@ const LandingPage = ({ setIsModalOpen }) => {
                                         formattedName[len - 1] = `${lastName[0]}.`;
 
                                         return (
-                                            <div key={i} className="px-4 py-2">
+                                            <a href={d.linkedInUrl} target="_blank" key={i} className="px-4 py-2">
                                                 <img src={d.imgUrl} alt={d.name} />
                                                 <p className="text-center text-[#0086c3]">{d.name}</p>
-                                            </div>
+                                            </a>
                                         )
                                     })}
                                 </Slider>

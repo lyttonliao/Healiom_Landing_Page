@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import linkedInIcon from '../../public/images/linkedin.png';
-import twitterIcon from '../../public/images/twitter.png'
+import linkedInIcon from '../assets/images/linkedin.png';
+import twitterIcon from '../assets/images/twitter.png'
 
 
 const Footer = ({ setIsModalOpen }) => {

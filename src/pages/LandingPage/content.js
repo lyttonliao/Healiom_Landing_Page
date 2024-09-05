@@ -21,7 +21,7 @@ const content = {
                 }
             ],
             "hasButton": true,
-            "imgUrl": "/images/landing-page-iphone@2x.png"
+            "img": require("../../assets/images/landing-page-iphone@2x.png")
         },
         {
             "texts": [
@@ -38,7 +38,7 @@ const content = {
                 }
             ],
             "hasButton": false,
-            "imgUrl": "/images/multi-ehr-data-iphone.png"
+            "img": require("../../assets/images/multi-ehr-data-iphone.png")
         },
         {
             "texts": [
@@ -55,7 +55,7 @@ const content = {
                 }
             ],
             "hasButton": false,
-            "imgUrl": "/images/data-analysis-physician.png"
+            "img": require("../../assets/images/data-analysis-physician.png")
         },
         {
             "texts": [
@@ -72,7 +72,7 @@ const content = {
                 }
             ],
             "hasButton": false,
-            "imgUrl": "/images/availability-cloud.png"
+            "img": require("../../assets/images/availability-cloud.png")
         },
         {
             "texts": [
@@ -89,7 +89,7 @@ const content = {
                 }
             ],
             "hasButton": false,
-            "imgUrl": "/images/healiom-ipad.png"
+            "img": require("../../assets/images/healiom-ipad.png")
         },
         {
             "texts": [
@@ -104,89 +104,88 @@ const content = {
                 }
             ],
             "hasButton": true,
-            "imgUrl": "/images/healiom-graph.png"
+            "img": require("../../assets/images/healiom-graph.png")
         }
     ],
     "portraits": [
         {
             "name": "Ash Damle",
-            "imgUrl": "/images/AshD.png",
+            "img": require("../../assets/images/AshD.png"),
             "linkedInUrl": "https://www.linkedin.com/in/ashdamle/"
         },
         {
             "name": "Rakesh Nemade",
-            "imgUrl": "/images/RakeshN.png",
+            "img": require("../../assets/images/RakeshN.png"),
             "linkedInUrl": "https://www.linkedin.com/in/rakesh-nemade-73072113/"
         },
         {
             "name": "Carla Gallegos",
-            "imgUrl": "/images/CarlaG.png",
+            "img": require("../../assets/images/CarlaG.png"),
             "linkedInUrl": "https://www.linkedin.com/in/carlaegallegos/"
 
         },
         {
             "name": "Dr. Sean Howse",
-            "imgUrl": "/images/SeanH.png",
+            "img": require("../../assets/images/SeanH.png"),
             "linkedInUrl": "https://www.linkedin.com/in/sean-joseph-howse-md-mba-51954397/"
 
         },
         {
             "name": "Elizabeth Crowell",
-            "imgUrl": "/images/LizC.png",
+            "img": require("../../assets/images/LizC.png"),
             "linkedInUrl": "https://www.linkedin.com/in/mlizcro/"
 
         },
         {
             "name": "Kuldip Ahluwalia",
-            "imgUrl": "/images/KuldipA.png",
+            "img": require("../../assets/images/KuldipA.png"),
             "linkedInUrl": "https://www.linkedin.com/in/kuldip-k-ahluwalia/"
 
         },
         {
             "name": "Susana Craig",
-            "imgUrl": "/images/SusanaC.png",
+            "img": require("../../assets/images/SusanaC.png"),
             "linkedInUrl": "https://www.linkedin.com/in/craigsusana/"
 
         },
         {
             "name": "Dr. Alex Mohseni",
-            "imgUrl": "/images/AlexM.png",
+            "img": require("../../assets/images/AlexM.png"),
             "linkedInUrl": "https://www.linkedin.com/in/alex-mohseni-md-facep-2142b87/"
 
         },
         {
             "name": "Mick Murray",
-            "imgUrl": "/images/MickM.png",
+            "img": require("../../assets/images/MickM.png"),
             "linkedInUrl": "https://www.linkedin.com/in/michael-a-mick-murray-324b29/"
 
         },
         {
             "name": "Chris Stevens",
-            "imgUrl": "/images/ChrisS.png"
+            "img": require("../../assets/images/ChrisS.png")
         },        
         {
             "name": "Kevin Park",
-            "imgUrl": "/images/KevinP.png",
+            "img": require("../../assets/images/KevinP.png"),
             "linkedInUrl": "https://www.linkedin.com/in/kevin-s-park/"
 
         },        
         {
             "name": "Dr. Pomesh Nemade",
-            "imgUrl": "/images/PomeshN.png",
+            "img": require("../../assets/images/PomeshN.png"),
             "linkedInUrl": "https://www.linkedin.com/in/pomesh-nemade-a99656259/"
 
         },        
         {
             "name": "Manish Asodekar",
-            "imgUrl": "/images/ManishA.png",
+            "img": require("../../assets/images/ManishA.png"),
             "linkedInUrl": "https://www.linkedin.com/in/manish-asodekar-3a4b44115/"
 
         },        
         {
             "name": "Ashis Kiran",
-            "imgUrl": "/images/AshisK.png",
+            "img": require("../../assets/images/AshisK.png"),
             "linkedInUrl": "https://www.linkedin.com/in/ashis-kiran-3b3499154/"
-
         }
     ]
 }

@@ -41,7 +41,7 @@ const ImageTextBlock = ({ data, isReversed, setIsModalOpen = null }) => {
                 </div>
 
                 <div className="flex mx-auto md:mx-0 mt-8 md:mt-0 md:mx-4 max-w-2xl">
-                    <img src={data.imgUrl} />
+                    <img src={data.img} />
                 </div>
             </div>
         </div>

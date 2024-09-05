@@ -1,8 +1,11 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import ImageTextBlock from '../../components/ImageTextBlock';
 import content from './content';
+import illustrationTop from '../../assets/images/illustration_top.png';
+import illustrationBottom from '../../assets/images/illustration.png';
+import partnersGroup from '../../assets/images/partners-group.png';
 
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -101,8 +104,8 @@ const LandingPage = ({ setIsModalOpen }) => {
 
                 <div className="relative overflow-hidden md:pt-8">
                     <div className="flex min-w-md animate-refine-slide md:animate-none">
-                        <img className="w-full" src="/images/illustration_top.png" alt="illustration top"/>
-                        <img className="w-full md:hidden" src="/images/illustration_top.png" alt="illustration top"/>
+                        <img className="w-full" src={illustrationTop} alt="illustration top"/>
+                        <img className="w-full md:hidden" src={illustrationTop} alt="illustration top"/>
                     </div>
                 </div>
 
@@ -115,9 +118,9 @@ const LandingPage = ({ setIsModalOpen }) => {
                     <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-center">Our Partners</h1>
                     <div className="relative overflow-hidden">
                         <div className="flex min-w-md justify-center items-center animate-refine-slide md:animate-none">
-                            <img className="px-6 min-h-16" src="/images/partners-group.png" alt="partners"/>
-                            <img className="px-6 md:hidden min-h-16" src="/images/partners-group.png" alt="partners"/>
-                            <img className="px-6 md:hidden min-h-16" src="/images/partners-group.png" alt="partners"/>
+                            <img className="px-6 min-h-16" src={partnersGroup} alt="partners"/>
+                            <img className="px-6 md:hidden min-h-16" src={partnersGroup} alt="partners"/>
+                            <img className="px-6 md:hidden min-h-16" src={partnersGroup} alt="partners"/>
                         </div>
                     </div>
                 </div>
@@ -134,8 +137,8 @@ const LandingPage = ({ setIsModalOpen }) => {
 
                 <div className="relative overflow-hidden md:py-12">
                     <div className="flex min-w-md animate-refine-slide md:animate-none">
-                        <img className="w-full" src="/images/illustration.png" alt="illustration bottom"/>
-                        <img className="w-full md:hidden" src="/images/illustration.png" alt="illustration bottom"/>
+                        <img className="w-full" src={illustrationBottom} alt="illustration bottom"/>
+                        <img className="w-full md:hidden" src={illustrationBottom} alt="illustration bottom"/>
                     </div>
                 </div>
 
@@ -180,7 +183,7 @@ const LandingPage = ({ setIsModalOpen }) => {
 
                                     return (
                                         <a href={d.linkedInUrl} target="_blank" key={i} className="px-4 py-2">
-                                            <img src={d.imgUrl} alt={d.name} />
+                                            <img src={d.img} alt={d.name} />
                                             <p className="text-center text-[#0086c3]">{d.name}</p>
                                         </a>
                                     )

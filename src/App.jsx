@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { createBrowserRouter, ScrollRestoration, Outlet, RouterProvider } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage/LandingPage';

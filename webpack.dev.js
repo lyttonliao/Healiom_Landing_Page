@@ -11,9 +11,6 @@ module.exports = merge(common, {
             {
                 directory: path.join(__dirname, 'dist'),
             },
-            {
-                directory: path.join(__dirname, 'public')
-            }
         ],
         hot: true,
         historyApiFallback: true,

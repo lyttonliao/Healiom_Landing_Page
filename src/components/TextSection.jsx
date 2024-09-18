@@ -7,7 +7,7 @@ const TextSection = ({ title, children }) => {
                 {title}
             </h1>
 
-            <div className="space-y-4 leading-5">
+            <div className="space-y-4 leading-6">
                 {children}
             </div>
         </div>
